@@ -21,8 +21,21 @@ public class PrimeChecker {
      */
     public boolean isPrime(int number) {
 
-        // 여기에 코드 작성(return 구문도 수정 필요하면 수정)
-        return false;
+        int count = 0;      // 소수 판별 변수 선언 및 초기화
+
+        // 반복문
+        // 1. i는 1부터 number 까지 증감
+        // 2. number가 i로 나눠지면
+        // 3. count에 1증가
+        for (int i = 1; i <= number; i++){
+            if (number % i == 0)
+                count++;
+        }
+
+        if (count == 2)     // 1과 자기 자신으로만 나누어졌다면
+            return true;    // true 반환
+        else
+            return false;   // 아니라면 false 반환
     }
 
     public static void main(String[] args) {
