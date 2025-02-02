@@ -39,19 +39,39 @@ public class ShoppingCart {
      */
     public boolean addItem(String item, int price) {
 
-        // 여기에 코드 작성(return 구문도 수정 필요하면 수정)
-        return false;
+        if (item.length() >= MAX_ITEMS)        // 10개 초과 시 false 반환
+            return false;
+        else{
+            items[itemCount] = item;    // items에 전달 받은 item 추가
+            prices[itemCount] = price;  // prices에 전달 받은 price 추가
+            itemCount ++;               // index +1
+            return true;                // 장바구니 추가 성공: true 반환
+        }
     }
 
     public void printCart() {
 
-        // 여기에 코드 작성
+        // 반복문
+        // 1. 0부터 itemCount까지
+        // 2. 값이 담겼는 지 확인 후
+        // 3. 출력
+        for (int i = 0; i < itemCount; i++) {
+            if (items[i] != null)       // 값이 담겨있는 것만 출력
+                System.out.println((i+1) + ". " + items[i] + " (" + prices[i] + "원)");
+        }
     }
 
     public int calculateTotal() {
+        int total = 0;                  // 총합을 담는 변수 선언 및 초기화
 
-        // 여기에 코드 작성(return 구문도 수정 필요하면 수정)
-        return 0;
+        // 반복문
+        // 1. itemCount만큼
+        // 2. 누적 합 계산
+        for (int i = 0; i < itemCount; i++) {
+            total += prices[i];
+        }
+
+        return total;
     }
 
     public static void main(String[] args) {
