@@ -19,9 +19,18 @@ public class NumberAnalyzer {
      * @return 1부터 주어진 숫자까지의 모든 짝수의 합
      */
     public int sumOfEvenNumbers(int number) {
+        int sum = 0;            // 짝수 누적 합 변수 선언
 
-        // 여기에 코드 작성(return 구문도 수정 필요하면 수정)
-        return 0;
+        // 1. 1~number 순회
+        // 2. 짝수 판별
+        // 3. 누적 합
+        for (int i = 1; i <= number; i++) {
+            if(i % 2 == 0){     // 짝수라면
+                sum += i;       // sum에 i 더하기
+            }
+        }
+
+        return sum;             // sum 반환
     }
 
     public static void main(String[] args) {
