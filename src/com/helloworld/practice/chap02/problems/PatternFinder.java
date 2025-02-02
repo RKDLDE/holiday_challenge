@@ -25,8 +25,26 @@ public class PatternFinder {
      */
     public int findPattern(String text, String pattern) {
 
-        // 여기에 코드 작성(return 구문도 수정 필요하면 수정)
-        return 0;
+        text = text.toLowerCase();                            // 소문자로 변환
+        pattern = pattern.toLowerCase();                      // 소문자로 변환
+
+        int index = 0;                                       // index 값 저장할 변수 선언
+        int count = 0;                                      // 나타난 횟수를 저장할 변수 선언
+
+        while(index != -1){                                 // 문자열 위치가 -1이 아닐 때 반복
+            index = text.indexOf(pattern, index);           // 초기 비교
+
+            // break 문
+            if (index == -1){
+                System.out.println("if문?");
+                break;
+            }
+
+            count ++;                                        // 횟수 +1
+            index = text.indexOf(pattern, index+1); // 다음 인덱스 지정
+        }
+
+        return count;
     }
 
     public static void main(String[] args) {
