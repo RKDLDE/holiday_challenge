@@ -32,8 +32,16 @@ public class StudentGrade {
      */
     public double calculateAverage() {
 
-        // 여기에 코드 작성(return 구문도 수정 필요하면 수정)
-        return 0.0;
+        double total = 0.0;             // 점수 합계를 저장할 변수 선언
+
+        // 반복문
+        // 1. 0부터 scores 크기만큼
+        // 2. total에 scores의 요소를 더함
+        for(int i = 0; i < scores.length; i++){
+            total += scores[i];
+        }
+
+        return total / scores.length;   // 평균(total에 scores 크기를 나눔) 평균 반환
     }
 
     /**
@@ -46,8 +54,18 @@ public class StudentGrade {
      */
     public int findHighestScore() {
 
-        // 여기에 코드 작성(return 구문도 수정 필요하면 수정)
-        return 0;
+        int maxScore = scores[0];       // 최고 점수를 담을 변수 선언 후 초기화
+
+        // 반복문
+        // 1. 0부터 scores 크기만큼
+        // 2. scores의 다음 요소와 크기 비교 후
+        // 3. 더 큰 값을 maxScore에 저장
+        for(int i = 1; i < scores.length; i++){
+           if(maxScore < scores[i]) {
+               maxScore = scores[i];
+           }
+        }
+        return maxScore;                // maxScore 반환
     }
 
     public static void main(String[] args) {
