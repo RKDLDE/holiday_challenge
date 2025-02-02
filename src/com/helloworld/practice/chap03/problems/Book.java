@@ -36,15 +36,17 @@ public class Book {
      * @return 대출/반납 성공 시 true, 실패 시 false
      */
     public boolean borrowBook() {
-
-        // 여기에 코드 작성(return 구문도 수정 필요하면 수정)
-        return false;
+        if (this.borrowed == false) {       // 대출 중이 아니라면
+            this.borrowed = true;           // 대출 상태로 변환 = true
+            return true;                    // 대출이 되었다는 true 반환
+        } else return false;                // 대출 중이라면 false 반환
     }
 
     public boolean returnBook() {
-
-        // 여기에 코드 작성(return 구문도 수정 필요하면 수정)
-        return false;
+        if (this.borrowed == true) {        // 대출 중이라면
+            this.borrowed = false;          // 반납을 뜻하는 false 변환
+            return true;                    // 반납이 되었다는 true 반환
+        } else return false;
     }
 
     public String getTitle() {
